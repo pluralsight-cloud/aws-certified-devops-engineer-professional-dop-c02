@@ -1,0 +1,4 @@
+{ “logGroupName”: “ecs/<your-container-name>”, “retentionInDays”: 7 }
+
+
+aws logs create-log-group — cli-input-json file://ecs-log-group.json
