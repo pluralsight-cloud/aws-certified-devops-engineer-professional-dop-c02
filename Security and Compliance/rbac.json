@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:ListKeys",
+                "kms:ListAliases",
+                "secretsmanager:ListSecrets"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "secretsmanager:*",
+            "Resource": [
+                "arn:aws:secretsmanager:us-east-1:143287522423:secret:apple-3vizK2",
+                "arn:aws:secretsmanager:us-east-1:143287522423:secret:artichoke-kcf6rt",
+                "arn:aws:secretsmanager:us-east-1:143287522423:secret:apricot-kONXJW"
+            ]
+        }
+    ]
+}

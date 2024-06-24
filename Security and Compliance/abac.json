@@ -1,0 +1,42 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:ListSecrets"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "secretsmanager:CreateSecret",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/groupid": "${aws:PrincipalTag/groupid}"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "secretsmanager:*",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "secretsmanager:ResourceTag/groupid": "${aws:PrincipalTag/groupid}"
+                }
+            }
+        },
+        {
+            "Effect": "Deny",
+            "Action": "secretsmanager:UnTagResource",
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringEquals": {
+                    "aws:TagKeys": "groupid"
+                }
+            }
+        }
+    ]
+}

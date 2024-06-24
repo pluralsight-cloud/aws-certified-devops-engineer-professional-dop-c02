@@ -1,0 +1,20 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:ListSecrets"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "secretsmanager:*",
+            "Resource": [
+                "arn:aws:secretsmanager:us-west-2:123456789012:secret:mysql1-s2d3f4",
+                "arn:aws:secretsmanager:us-west-2:123456789012:secret:mysql2-w2e3r4"
+            ]
+        }
+    ]
+}
